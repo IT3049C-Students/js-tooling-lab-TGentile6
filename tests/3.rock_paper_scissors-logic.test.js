@@ -6,15 +6,22 @@ describe(`RockPaperScissors class`, function () {
     test(`win cases`, function () {
       const game = new RockPaperScissors();
       expect(game.determineWinner(`rock`, `scissors`)).toBe(`win`);
-      // Complete the test
+      expect(game.determineWinner(`scissors`, `paper`)).toBe(`win`);
+      expect(game.determineWinner(`paper`, `rock`)).toBe(`win`);
     });
 
     test(`tie cases`, function () {
-      // Write your test here
+      const game = new RockPaperScissors();
+      expect(game.determineWinner(`rock`, `rock`)).toBe(`tie`);
+      expect(game.determineWinner(`scissors`, `scissors`)).toBe(`tie`);
+      expect(game.determineWinner(`paper`, `paper`)).toBe(`tie`);
     });
 
     test(`lost cases`, function () {
-      // Write your test here
+      const game = new RockPaperScissors();
+      expect(game.determineWinner(`scisssors`, `rock`)).toBe(`lose`);
+      expect(game.determineWinner(`paper`, `scissors`)).toBe(`lose`);
+      expect(game.determineWinner(`rock`, `paper`)).toBe(`lose`);
     });
   });
   
@@ -27,10 +34,16 @@ describe(`RockPaperScissors class`, function () {
 
     it(`Math.Random = 0.5 -> Paper`, function() {
       // Write your test here
+      mathRandomSpy.mockImplementation(() => 0.5);
+      const game = new RockPaperScissors();
+      expect(game.generateCPUResponse()).toBe(`paper`);
     });
 
-    it(`Math.Random = 0.9 -> Paper`, function() {
+    it(`Math.Random = 0.9 -> Scissors`, function() {
       // Write your test here
+      mathRandomSpy.mockImplementation(() => 0.9);
+      const game = new RockPaperScissors();
+      expect(game.generateCPUResponse()).toBe(`scissors`);
     });
 
   });
