@@ -6,7 +6,9 @@
     "start": "open index.html",
     "lint": "eslint --ext .js resources/scripts",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "author": "Yahya Gilany <gilanyym@ucmail.uc.edu>",
   "license": "UNLICENSED",
@@ -21,7 +23,11 @@
     "@testing-library/dom": "^7.31.0",
     "@testing-library/jest-dom": "^5.8.0",
     "@types/jest": "^25.2.3",
-    "jest": "^26.0.1",
-    "prettier": "^2.3.0"
+    "cypress": "^9.5.3",
+    "eslint": "^8.12.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.3.0",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
   }
 }
